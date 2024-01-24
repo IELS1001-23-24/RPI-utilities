@@ -1,17 +1,53 @@
 # Vis IP-adresse på SenseHat
+
+- [Vis IP-adresse på SenseHat](#vis-ip-adresse-på-sensehat)
+  - [Installering av SenseHat biblioteket](#installering-av-sensehat-biblioteket)
+  - [Installasjon med git clone](#installasjon-med-git-clone)
+  - [Manuell installering av showip.py service](#manuell-installering-av-showippy-service)
+    - [Autostart](#autostart)
+  
 Denne guiden viser hvordan du kan vise IP-adressen til Raspberry Pi på SenseHat LED-matrisen. Dette kan være nyttig når du skal koble deg til et nettverk hvor du ikke vet IP-adressen til Raspberry Pi.
 
-Koden er skrevet slik at Raspberry Pi vil finne sin egen IP-adresse og vise den på LED-matrisen. Denne vill vises gang på gang helt til du trykker på midtknappen på SenseHat joysticken.  
+Koden er skrevet slik at Raspberry Pi vil finne sin egen IP-adresse og vise den på LED-matrisen. Denne vil vises gang på gang helt til du trykker på midtknappen på SenseHat joysticken.  
 
 Koden er skrevet for Python 3 og SenseHat biblioteket. Den er testet på en Raspberry Pi 3B+ med SenseHat.
-## Installering
+
+## Installering av SenseHat biblioteket
 Føst må SenseHat biblioteket installeres.
 Dette gjøres ved å skrive følgende i terminalen:
 ```bash
 sudo apt-get update
 sudo apt-get install sense-hat
 ```
-Deretter må det lages et Python script som viser IP-adressen på LED-matrisen.
+
+## Installasjon med git clone
+Koden kan lastes ned fra github, og installeres med install-filen som ligger der. Om dette ikke er ønskelig se [Manuell installering av showip.py service](#manuell-installering-av-showippy-service).
+
+For å laste ned koden fra github må git være installert. Dette skal komme ferdig installert på nyere versjoner av Raspbian. For å sjekke om det er installert skriv følgende i terminalen:
+```bash
+git --version
+```
+Med git installert kan koden lastes ned ved å skrive følgende i terminalen:
+```bash
+git clone https://github.com/IELS1001-23-24/RPI-utilities 
+```
+Dette vil laste ned RPI-utilities mappen fra github til mappen du er i når du skriver kommandoen.
+
+Etter at koden er lastet ned må install-filen kjøres. Dette gjøres ved å skrive følgende i terminalen:
+```bash
+cd ~
+sudo bash ./RPI-utilities/sensehat_show_ip/install.sh
+```
+
+Om ønskelig kan servicen avinstalleres, og koden slettes ved å skrive følgende i terminalen:
+```bash
+cd ~
+sudo bash ./RPI-utilities/sensehat_show_ip/uninstall.sh
+```
+
+## Manuell installering av showip.py service
+Det er også mulig å installere showip.py manuelt uten å bruke git clone. For å gjøre dette må python scriptet showip.py lages og systemd servicen  settes opp manuelt.
+
 Dette gjøres ved å skrive følgende i terminalen:
 ```
 sudo nano /showip.py
@@ -52,7 +88,7 @@ Test at scriptet fungerer ved å skrive følgende i terminalen:
 ```bash
 python3 showip.py
 ```
-## Autostart
+### Autostart
 For å få scriptet til å starte automatisk ved oppstart av Raspberry Pi må det lages en systemd service.
 Dette gjøres ved å skrive følgende i terminalen:
 ```
