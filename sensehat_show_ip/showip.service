@@ -1,0 +1,14 @@
+[Unit]
+Description=Python script that shows IP address on SenseHat
+After=multi-user.target
+
+[Service]
+User=root
+WorkingDirectory=/
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/python3 showip.py
+SyslogIdentifier=showip
+
+[Install]
+WantedBy=multi-user.target
