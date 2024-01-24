@@ -26,5 +26,6 @@ sudo rm /showip.py # remove the python script from the root directory
 sudo systemctl daemon-reload # reload the systemd daemon
 echo "Uninstallation complete"
 echo "To check the status of the service, run 'sudo systemctl status sensehat_show_ip.service'"
+echo "should return 'Unit sensehat_show_ip.service could not be found.'"
 echo ""
 echo "To reinstall, run install.sh"
