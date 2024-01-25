@@ -29,6 +29,7 @@ git --version
 ```
 Med git installert kan koden lastes ned ved å skrive følgende i terminalen:
 ```bash
+cd ~ #go to home directory
 git clone https://github.com/IELS1001-23-24/RPI-utilities 
 ```
 Dette vil laste ned RPI-utilities mappen fra github til mappen du er i når du skriver kommandoen.
@@ -39,6 +40,15 @@ cd ~
 sudo bash ./RPI-utilities/sensehat_show_ip/install.sh
 ```
 
+Etter dette skal IP-adressen til Raspberry Pi vises på LED-matrisen hver gang den starter opp. 
+Instalasjonen kan testes ved å starte Raspberry Pi på nytt. Dette gjøres ved å skrive følgende i terminalen:
+```bash
+sudo reboot
+```
+Etter at Raspberry Pi har startet opp skal IP-adressen vises på LED-matrisen. Denne vil vises gang på gang helt til du trykker på midtknappen på SenseHat joysticken.
+
+**Fungerer dette er installasjonen ferdig.**
+
 Om ønskelig kan servicen avinstalleres, og koden slettes ved å skrive følgende i terminalen:
 ```bash
 cd ~
@@ -46,6 +56,8 @@ sudo bash ./RPI-utilities/sensehat_show_ip/uninstall.sh
 ```
 
 ## Manuell installering av showip.py service
+Om du ikke ønsker å bruke git clone kan showip.py installeres manuelt. Har du allerede installert showip.py med git clone og install.sh skal programmet fungere og du trenger ikke å gjøre dette.
+
 Det er også mulig å installere showip.py manuelt uten å bruke git clone. For å gjøre dette må python scriptet showip.py lages og systemd servicen  settes opp manuelt.
 
 Dette gjøres ved å skrive følgende i terminalen:
